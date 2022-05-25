@@ -26,7 +26,7 @@ env_fil=function(traits,otu,take_rows=nrow(otu), quant=5, simul=499, correction=
   }
   names(null_vectors)<-c(paste(spp_sel,"spp", sep="_"))
   #Summarize the distribution values of the randomized functional richness
-  null_model<-lapply(null_vectors, quantile, probs=c(0.05, 0.10, 0.5, 0.90, 0.95))
+  null_model<-lapply(null_vectors, quantile, probs=c(0.025,0.05, 0.10, 0.5, 0.90, 0.95,0.975))
   
   #Compare the observed functional richness to the specified quantile value in the "quant" argument. It assigns the putative process 
   r_fric<-cbind(specnumber(otu), Fric_origin$FRic)
